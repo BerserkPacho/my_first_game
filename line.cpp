@@ -1,23 +1,40 @@
  
 #include <SFML/Graphics.hpp>
 
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works?", sf::Style::Close);
+
+    sf::Event ev;
+    //event is an object 
     while (window.isOpen())
        {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	   while(window.pollEvent(ev)){
 
-        window.clear();
-       
-        window.display();
-    }
+	       switch(ev.type)
 
-    return 0;
-}
+		   {
+		   case sf::Event::Closed:
+		       window.close();
+		       break; 
+		 
+		   case sf::Event::KeyPressed:
+		       if(ev.key.code ==sf::Keyboard::Escape)
+			   window.close();
+		       break;
+		   } 
+
+			   
+	     
+	       
+	   } 
+
+       } 
+
+	   window.clear();
+	   window.display();
+	   
+	   return 0;
+
+} 
