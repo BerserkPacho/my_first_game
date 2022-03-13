@@ -1,5 +1,0 @@
-compile: ./test.cpp
-	g++ -c ./line.cpp
-	g++ test.o -o app -lsfml-graphics -lsfml-window -lsfml-system
-run:
-	./app
